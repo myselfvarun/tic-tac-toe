@@ -194,11 +194,7 @@ function makePlay(mark, row, col) {
 }
 
 function minimax(state, depth){
-  // Inspired by http://neverstopbuilding.com/minimax
-  
-  // Creating a replicated object of the game state to avoid
-  // editing the existing game state (it has been passed 'byRef')
-  // See http://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript/5344074#5344074
+
   var gameState = JSON.parse(JSON.stringify(state));
   
   if (gameState.gameOver){
@@ -361,23 +357,9 @@ function checkWin(gameState) {
   return false;
 }
 
-/** 
 
-// Pre-Minimax AI, randomly selecting a space on the board.
 
-function aiGenerateRandomPlay() {
-  var randRow = Math.floor(Math.random() * 3);
-  var randCol = Math.floor(Math.random() * 3);
-  var validMove = spaceFree(randRow, randCol);
-  while (!validMove) {
-    randRow = Math.floor(Math.random() * 3);
-    randCol = Math.floor(Math.random() * 3);
-    validMove = spaceFree(randRow, randCol);
-  }
-  return [randRow, randCol];
-}
 
-*/
 
 
 // Checking whether the last move made has triggered a win, and if so triggers a win animation.
