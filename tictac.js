@@ -9,7 +9,8 @@ var game = {
   playerTurn: true, // Flag tracking who's turn it is.
   nextMove: [null, null], // Used to store move calculated by minimax.
   winner: "", // Stores winning mark.
-  gameOver: false // Flag indicating whether the game has ended.
+  gameOver: false 
+  // Flag indicating whether the game has ended.
 }
 
 var darkColor = "#2c3e50";
