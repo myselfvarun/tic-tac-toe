@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./tictac.css">
+    <link href="https://fonts.googleapis.com/css?family=Trade+Winds|Gloria+Hallelujah|Share+Tech" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    <title>tic tac</title>
+</head>
+<body onload="textToAudio()">
+    <div id="container"  >
+
+  <div class="game-narrative" id="game-narrative-one" >
+    <p class="game-narrative-text" id="speech">In a world where two forces battle for domination of a war-torn landscape, only one will draw the line and reign supreme. </p>
+    <!-- for domination of a war-torn landscape, only one will draw the line and reign supreme. -->
+    <button class="game-btn" id="narrative-one-btn" onclick="narrateTwo()">Next</button>
+  </div>
+
+  <div class="game-narrative" id="game-narrative-two">
+    
+    <p class="game-narrative-text" id="secondnarrate">The year is 2048. <br>
+      In a post apocalyptic galaxy run by giant corporations, you are a cybernetically enhanced space marine with no memory of their past.</p>
+    <button class="game-btn" id="narrative-two-btn" onclick="narrateThree()">continue</button>
+  </div>
+
+  <div class="game-narrative" id="game-narrative-three">
+   
+    <p class="game-narrative-text" id="thridnarrate">Are you the chosen one foretold by prophecy? <br>
+      Do you have the strength to survive...</p>
+    <div id="narrative-three-btns">
+      <button class="game-btn" id="narrative-three-btn">YES</button>
+      <div></div>
+      <a class="game-btn" id="no-btn" href="#" >NO</a>
+    </div>
+  </div>
+
+  <div id = "header">
+    <p class="dramatic-text">
+      <span id = "tic-text">Tic </span>
+      <span id = "tac-text">Tac Toe</span>
+      <span id = "doom-text">Battle</span>
+    </p>
+  </div>
+
+
+  <div id="game-configuration"> 
+    <h2 id = "identity-label">Choose your mark <br> X is called Cross and O is called Zero </h2>
+    <div id="identity-selection" class="row">
+      <div class="cell identity-cell" value="X">X</div>
+      <div class="cell identity-cell" value="O">O</div>
+    </div>
+  </div>
+
+  <div id="game-grid">
+    <div class="row">
+      <div class="cell game-cell" id="c00" style="background-image: url(./images/number-one.png);" ></div>
+      <div class="cell game-cell" id="c01" style="background-image: url(./images/number-2.png);" ></div>
+      <div class="cell game-cell" id="c02" style="background-image: url(./images/number-3.png);"></div>
+    </div>
+    <div class="row">
+      <div class="cell game-cell" id="c10" style="background-image: url(./images/number-four.png);"></div>
+      <div class="cell game-cell" id="c11" style="background-image: url(./images/number-5.png);"></div>
+      <div class="cell game-cell" id="c12" style="background-image: url(./images/number-six.png);" ></div>
+    </div>
+    <div class="row">
+      <div class="cell game-cell" id="c20" style="background-image: url(./images/number-seven.png);" ></div>
+      <div class="cell game-cell" id="c21" style="background-image: url(./images/number-8.png);"></div>
+      <div class="cell game-cell" id="c22" style="background-image: url(./images/number-9.png);"></div>
+    </div>
+    <div class="computer-threat">
+      <p><span id ="computer-threat-text"></span></p>
+    </div>
+  </div>
+
+  <div id="game-over">
+    <h2 id="game-end-heading"></h2>
+    <h3 id="game-end-subheading"></h2>
+    <button class="game-btn" id="game-reset-btn">&#8634; Play again</button>
+  </div>
+  
+</div>
+<script src="./tictac.js"></script>
+<script>
+  if (annyang) {
+  // Let's define a command.
+  const commands = {
+    'Next': () => { document.getElementsByClassName("game-btn")[0].click();
+ }
+  };
+   const command2 = {
+    'continue': () => { document.getElementsByClassName("game-btn")[1].click();
+ }
+  };
+   const command3 = {
+    'yes': () => { document.getElementsByClassName("game-btn")[2].click();
+ }
+  };
+   const command4 = {
+    'Cross': () => { document.getElementsByClassName("identity-cell")[0].click();
+ }
+  };
+   const command5 = {
+    'zero': () => { document.getElementsByClassName("identity-cell")[1].click();
+ }
+  };
+   const command6 = {
+    'one': () => { document.getElementsByClassName("game-cell")[0].click();
+ }
+  };
+   const command7 = {
+    'two': () => { document.getElementsByClassName("game-cell")[1].click();
+ }
+  };
+   const command8 = {
+    'three': () => { document.getElementsByClassName("game-cell")[2].click();
+ }
+  };
+   const command9 = {
+    'four': () => { document.getElementsByClassName("game-cell")[3].click();
+ }
+  };
+   const command10 = {
+    'five': () => { document.getElementsByClassName("game-cell")[4].click();
+ }
+  };
+   const command11 = {
+    'six': () => { document.getElementsByClassName("game-cell")[5].click();
+ }
+  };
+   const command12 = {
+    'seven': () => { document.getElementsByClassName("game-cell")[6].click();
+ }
+  };
+   const command13 = {
+    'Eight'  : () => { document.getElementsByClassName("game-cell")[7].click();
+ }
+  };
+   const command14 = {
+    'nine': () => { document.getElementsByClassName("game-cell")[8].click();
+ }
+  };
+   const command15 = {
+    'play again': () => { document.getElementsByClassName("game-btn")[4].click();
+ }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+  annyang.addCommands(command2);
+  annyang.addCommands(command3);
+  annyang.addCommands(command4);
+  annyang.addCommands(command5);
+  annyang.addCommands(command6);
+  annyang.addCommands(command7);
+  annyang.addCommands(command8);
+  annyang.addCommands(command9);
+  annyang.addCommands(command10);
+  annyang.addCommands(command11);
+  annyang.addCommands(command12);
+  annyang.addCommands(command13);
+  annyang.addCommands(command14);
+  annyang.addCommands(command15);
+
+  // Start listening.
+  annyang.start();
+}
+
+//------------------------------------
+//------------------------------------
+//------------------------------------
+
+     function textToAudio() {
+                let msg = document.getElementById("speech").innerText;
+                
+                let speech = new SpeechSynthesisUtterance();
+                speech.lang = "en-US";
+                
+                speech.text = msg;
+                speech.volume = 0.9;
+                speech.rate = 0.7;
+                speech.pitch = -1;
+                
+                window.speechSynthesis.speak(speech);
+            }
+
+            function narrateTwo(){
+              let msg = document.getElementById("secondnarrate").innerText;
+                
+                let speech = new SpeechSynthesisUtterance();
+                speech.lang = "en-US";
+                
+                speech.text = msg;
+                speech.volume = 1;
+                speech.rate = 1;
+                speech.pitch = 1;
+                
+                window.speechSynthesis.speak(speech);
+            }
+
+             function narrateThree(){
+              let msg = document.getElementById("thridnarrate").innerText;
+                
+                let speech = new SpeechSynthesisUtterance();
+                speech.lang = "en-US";
+                
+                speech.text = msg;
+                speech.volume = 1;
+                speech.rate = 1;
+                speech.pitch = 1;
+                
+                window.speechSynthesis.speak(speech);
+            }
+</script>
+</body>
+</html>
